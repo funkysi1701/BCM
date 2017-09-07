@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ContactManagerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ContactManager.dbo.Contacts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Contacts">
+          <Key>
+            <PropertyRef Name="FirstName" />
+            <PropertyRef Name="Surname" />
+          </Key>
+          <Property Name="FirstName" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="Surname" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="CompanyName" Type="varchar" MaxLength="256" />
+          <Property Name="Address" Type="nvarchar" MaxLength="256" />
+          <Property Name="Address2" Type="nvarchar" MaxLength="256" />
+          <Property Name="Address3" Type="nvarchar" MaxLength="256" />
+          <Property Name="City" Type="nvarchar" MaxLength="64" />
+          <Property Name="County" Type="nvarchar" MaxLength="64" />
+          <Property Name="Country" Type="nvarchar" MaxLength="64" />
+          <Property Name="PostCode" Type="nvarchar" MaxLength="16" />
+          <Property Name="Telephone" Type="nvarchar" MaxLength="32" />
+          <Property Name="Telephone1" Type="nvarchar" MaxLength="32" />
+          <Property Name="Telephone2" Type="nvarchar" MaxLength="32" />
+          <Property Name="Telephone3" Type="nvarchar" MaxLength="32" />
+          <Property Name="Telephone4" Type="nvarchar" MaxLength="32" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="Email2" Type="nvarchar" MaxLength="256" />
+          <Property Name="Website" Type="nvarchar" MaxLength="256" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityContainer Name="ContactManagerModelStoreContainer">
+          <EntitySet Name="Contacts" EntityType="Self.Contacts" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Contacts].[FirstName] AS [FirstName], 
+    [Contacts].[Surname] AS [Surname], 
+    [Contacts].[CompanyName] AS [CompanyName], 
+    [Contacts].[Address] AS [Address], 
+    [Contacts].[Address2] AS [Address2], 
+    [Contacts].[Address3] AS [Address3], 
+    [Contacts].[City] AS [City], 
+    [Contacts].[County] AS [County], 
+    [Contacts].[Country] AS [Country], 
+    [Contacts].[PostCode] AS [PostCode], 
+    [Contacts].[Telephone] AS [Telephone], 
+    [Contacts].[Telephone1] AS [Telephone1], 
+    [Contacts].[Telephone2] AS [Telephone2], 
+    [Contacts].[Telephone3] AS [Telephone3], 
+    [Contacts].[Telephone4] AS [Telephone4], 
+    [Contacts].[Email] AS [Email], 
+    [Contacts].[Email2] AS [Email2], 
+    [Contacts].[Website] AS [Website], 
+    [Contacts].[Notes] AS [Notes]
+    FROM [dbo].[Contacts] AS [Contacts]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ContactManagerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="FirstName" />
+            <PropertyRef Name="Surname" />
+          </Key>
+          <Property Name="FirstName" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CompanyName" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Address2" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Address3" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="County" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="PostCode" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="Telephone" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Telephone1" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Telephone2" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Telephone3" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Telephone4" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Email2" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Website" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="ContactManagerEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Contacts" EntityType="Self.Contact" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ContactManagerModelStoreContainer" CdmEntityContainer="ContactManagerEntities">
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="ContactManagerModel.Contact">
+              <MappingFragment StoreEntitySet="Contacts">
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Address3" ColumnName="Address3" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="County" ColumnName="County" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="Telephone1" ColumnName="Telephone1" />
+                <ScalarProperty Name="Telephone2" ColumnName="Telephone2" />
+                <ScalarProperty Name="Telephone3" ColumnName="Telephone3" />
+                <ScalarProperty Name="Telephone4" ColumnName="Telephone4" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Email2" ColumnName="Email2" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
