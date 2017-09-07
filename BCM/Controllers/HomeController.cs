@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using BCM.Models;
 using PagedList;
+using System.Data.Entity;
 
 namespace BCM.Controllers
 {
@@ -49,5 +50,25 @@ namespace BCM.Controllers
             }
             return View(records.ToPagedList(pageNumber ?? 1, 10));
         }
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Create(Contact contact)
+        {
+            if(ModelState.IsValid)
+            {
+                db.Contacts.Add(contact);
+                db.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+            return View(contact);
+        }
     }
+
+  
+
 }

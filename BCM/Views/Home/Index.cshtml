@@ -17,9 +17,10 @@
 }
 
 <p>
-    <button onclick="location.href'@Url.Action("Create New", "Create")';return false;">Create New</button>
-    @*Not sure on this, might change it back to  @Html.ActionLink("Create New", "Create")*@
-    <button onclick="location.href'@Url.Action("Home", "Index")';return falses;">Refresh</button>
+    @Html.ActionLink("Create New", "Create")
+
+    @*<input type="button" class="btn btn-info" value="Search" onclick="location.href='Url.Action("Create")'" />*@
+    @*<button onclick="location.href'@Url.Action("Home", "Index")';return falses;">Refresh</button>*@
 </p>
 <table class="table">
     <tr>
