@@ -56,16 +56,16 @@ namespace BCM.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Create(Contact contact)
+        public ActionResult Create(Contact newContact)
         {
             if(ModelState.IsValid)
             {
-                db.Contacts.Add(contact);
+                db.Contacts.Add(newContact);
                 db.SaveChanges();
 
                 return RedirectToAction("Index");
             }
-            return View(contact);
+            return View(newContact);
         }
     }
 
