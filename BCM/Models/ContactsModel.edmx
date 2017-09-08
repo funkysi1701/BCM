@@ -4,14 +4,16 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ContactManagerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ContactManagerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <!--Errors Found During Generation:
 warning 6002: The table/view 'ContactManager.dbo.Contacts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Contacts">
           <Key>
+            <PropertyRef Name="Id" />
             <PropertyRef Name="FirstName" />
             <PropertyRef Name="Surname" />
           </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FirstName" Type="varchar" MaxLength="256" Nullable="false" />
           <Property Name="Surname" Type="varchar" MaxLength="256" Nullable="false" />
           <Property Name="CompanyName" Type="varchar" MaxLength="256" />
@@ -35,6 +37,7 @@ warning 6002: The table/view 'ContactManager.dbo.Contacts' does not have a prima
         <EntityContainer Name="ContactManagerModelStoreContainer">
           <EntitySet Name="Contacts" EntityType="Self.Contacts" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
+    [Contacts].[Id] AS [Id], 
     [Contacts].[FirstName] AS [FirstName], 
     [Contacts].[Surname] AS [Surname], 
     [Contacts].[CompanyName] AS [CompanyName], 
@@ -57,8 +60,7 @@ warning 6002: The table/view 'ContactManager.dbo.Contacts' does not have a prima
     FROM [dbo].[Contacts] AS [Contacts]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ContactManagerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -66,6 +68,7 @@ warning 6002: The table/view 'ContactManager.dbo.Contacts' does not have a prima
           <Key>
             <PropertyRef Name="FirstName" />
             <PropertyRef Name="Surname" />
+            <PropertyRef Name="Id" />
           </Key>
           <Property Name="FirstName" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Surname" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
@@ -86,6 +89,7 @@ warning 6002: The table/view 'ContactManager.dbo.Contacts' does not have a prima
           <Property Name="Email2" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="Website" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityContainer Name="ContactManagerEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Contacts" EntityType="Self.Contact" />
@@ -99,6 +103,7 @@ warning 6002: The table/view 'ContactManager.dbo.Contacts' does not have a prima
           <EntitySetMapping Name="Contacts">
             <EntityTypeMapping TypeName="ContactManagerModel.Contact">
               <MappingFragment StoreEntitySet="Contacts">
+                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="Surname" ColumnName="Surname" />
                 <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />

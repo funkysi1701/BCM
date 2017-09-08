@@ -33,5 +33,6 @@ namespace BCM.Models
         public string Email2 { get; set; }
         public string Website { get; set; }
         public string Notes { get; set; }
+        public int Id { get; set; }
     }
 }

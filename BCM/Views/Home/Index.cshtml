@@ -25,6 +25,9 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.First().Id)
+        </th>
+        <th>
             @Html.ActionLink("FirstName", "Index", new { sort = ViewBag.SortByFirstName, option = Request.QueryString["option"], search = Request.QueryString["search"]})
         </th>
         <th>
@@ -95,6 +98,9 @@ else {
 foreach (var item in Model)
 {
     <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.FirstName)
         </td>
