@@ -68,6 +68,7 @@ namespace BCM.Controllers
                 return RedirectToAction("Index");
                                 
             }
+
             return View(newContact);
         }
         [HttpGet]

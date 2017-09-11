@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BCM", "BCM\BCM.csproj", "{D0C6918F-2E96-49EA-8089-833CF574A25F}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Contacts", "..\Contacts\Contacts.sqlproj", "{D4545E3F-78C0-48D5-80DF-E1C9BEA2E8EE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,12 @@ Global
 		{D0C6918F-2E96-49EA-8089-833CF574A25F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0C6918F-2E96-49EA-8089-833CF574A25F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0C6918F-2E96-49EA-8089-833CF574A25F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4545E3F-78C0-48D5-80DF-E1C9BEA2E8EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4545E3F-78C0-48D5-80DF-E1C9BEA2E8EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4545E3F-78C0-48D5-80DF-E1C9BEA2E8EE}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D4545E3F-78C0-48D5-80DF-E1C9BEA2E8EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4545E3F-78C0-48D5-80DF-E1C9BEA2E8EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4545E3F-78C0-48D5-80DF-E1C9BEA2E8EE}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
