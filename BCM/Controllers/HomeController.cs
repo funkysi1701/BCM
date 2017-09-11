@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using BCM.Models;
 using PagedList;
 using System.Data.Entity;
+using System.Net;
+using System.Data.Entity.SqlServer;
 
 namespace BCM.Controllers
 {
@@ -64,11 +66,31 @@ namespace BCM.Controllers
                 db.SaveChanges();
 
                 return RedirectToAction("Index");
+                                
             }
             return View(newContact);
         }
+        [HttpGet]
+        public ActionResult Details()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Details(int? Id)
+        {
+            if (Id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Contact contact = db.Contacts.Find(Id);
+            if (contact == null)
+            {
+                return HttpNotFound();
+            }
+            return View(contact);
+        }
     }
 
-  
+
 
 }
